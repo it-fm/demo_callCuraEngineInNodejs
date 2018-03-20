@@ -5,14 +5,13 @@ var spawn = child_process.spawn;
 
 var sliceProgress, filamentLength, filamentWeight, printTime;
 
-var curaEnginePath = "../CuraEngine/CuraEngine";
+var curaEnginePath = "../CuraEngine/Mac/CuraEngine";
 var configPath = "../CuraEngine/Config/normal_quality.def.json";
-var gcodePath;
+var gcodePath = getGcodePath();
 var stlPath = "../test.stl";
 
 //exec "$curaEnginePath" slice -v -p -j "$configPath" -o "$gcodePath" -l "$stlPath"
 
-gcodePath = getGcodePath();
 var wmic = spawn(curaEnginePath, ['slice', '-v', '-p', '-j', configPath, '-o', gcodePath, '-l', stlPath]);
 
 wmic.stdout.on('data', function (data) {});
