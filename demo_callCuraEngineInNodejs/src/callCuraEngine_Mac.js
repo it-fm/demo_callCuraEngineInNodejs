@@ -3,12 +3,19 @@ var spawn = child_process.spawn;
 
 var sliceProgress, filamentLength, filamentWeight, printTime;
 
+//it is ok when the following paramters have ' ', '$', chinese
+// example：
+// curaEnginePath="../CuraEngine/Mac blank/CuraEngine";
+// curaEnginePath="../CuraEngine/中文/CuraEngine";
+
 var curaEnginePath="../CuraEngine/Mac/CuraEngine";
 var configPath="../CuraEngine/Config/normal_quality.def.json";
 var gcodePath = getGcodePath();
 var stlPath="../test.stl";
 
 //exec "$curaEnginePath" slice -v -p -j "$configPath" -o "$gcodePath" -l "$stlPath"
+
+//todo: check whether CuraEngine, config files, stl exist
 
 var wmic = spawn(curaEnginePath, ['slice', '-v', '-p', '-j', configPath, '-o', gcodePath, '-l', stlPath]);
 
