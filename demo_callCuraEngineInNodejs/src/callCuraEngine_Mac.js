@@ -46,10 +46,10 @@ wmic.stderr.on('data', function(data) {
 			filamentWeight = Math.PI * (1.75 / 2) * (1.75 / 2) * filamentLength * 1.24;
 			sliceProgress = 1;
 
-		}else if(item.indexOf('Print time:') === 0){
+		}else if(item.indexOf('Print time (s):') === 0){
 
 			//add empirical parameter : 1.07
-			printTime = Number(item.replace('Print time:','')) * 1.07;
+			printTime = Number(item.replace('Print time (s):','')) * 1.07;
 			sliceProgress = 1;
 
 		}
